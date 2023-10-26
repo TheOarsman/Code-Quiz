@@ -64,6 +64,14 @@ const javascriptQuestions = [
         var currentQuestion = javascriptQuestions[questionIndex]
         console.log(currentQuestion)
         questionElement.textContent = currentQuestion.question
+        var choices = javascriptQuestions[questionIndex].answerChoices
+        var answerList = ""
+        for(var i = 0; i < choices.length; i++) {
+            answerList += `
+            <li class="choice">${choices[i]}</li>
+            `
+            choicesElement.innerHTML = answerList
+        }
     }
 
     // Creating start quiz function that simultaniously starts the timer
@@ -72,3 +80,5 @@ const javascriptQuestions = [
         startQuiz()
         startTimer()
     })
+
+    // need to create an event listener
