@@ -8,6 +8,7 @@ var questionElement = document.querySelector("#current-question")
 
 var choicesElement = document.querySelector("#choices")
 var startButton = document.querySelector("#start")
+var scoreElement = document.querySelector('#score')
 
 const javascriptQuestions = [
   {
@@ -40,7 +41,8 @@ const javascriptQuestions = [
 
 var questionIndex = 0
 var time = 100
-let interval;
+let interval
+var score = 0;
 
 function startTimer() {
   interval = setInterval(function () {
@@ -72,6 +74,40 @@ function displayQuestions() {
             `
     choicesElement.innerHTML = answerList
   }
+  // var choice1 = `<li class='choice'>${choices[0]}</li>`
+  // var choice2 = `<li class='choice'>${choices[1]}</li>`
+  // var choice3 = `<li class='choice'>${choices[2]}</li>`
+  // var choice4 = `<li class='choice'>${choices[3]}</li>`
+  // choicesElement.append(choice1, choice2, choice3, choice4)
+
+}
+
+choicesElement.addEventListener("click", function (event) {
+  event.preventDefault()
+  var userChoice = event.target.textContent
+  var answer =  javascriptQuestions[questionIndex].answer
+  if (userChoice === answer) {
+      score = score + 1 
+  } else {
+    time = time - 10
+  }
+    // end game if at last question
+    if(questionIndex === 4){
+      endGame()
+      return 
+    }
+  questionIndex = questionIndex + 1
+  displayQuestions()
+
+})
+
+function endGame(){
+  console.log('end the game')
+  scoreElement.style.display = 'block'
+  scoreElement.textContent = score
+  // either render a new page for end game or display a new seciton on the page that has an end game 
+
+  // end game refers to showing the score, an input boxx to insert an initial and a button to save to localStorage
 }
 
 // Creating start quiz function that simultaniously starts the timer
