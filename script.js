@@ -105,9 +105,6 @@ function endGame() {
   console.log('end the game')
   scoreElement.style.display = 'block'
   prompt(scoreElement.textContent = "Your score is " + score + " out of 5. Enter your initials to log youR score.")
-  console.log("this is a test")
-
-  // either render a new page for end game or display a new seciton on the page that has an end game 
 
   // end game refers to showing the score, an input boxx to insert an initial and a button to save to localStorage
 }
