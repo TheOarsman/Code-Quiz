@@ -40,13 +40,13 @@ const javascriptQuestions = [
 ];
 
 var questionIndex = 0
-var time = 100
+var time = 60
 let interval
 var score = 0;
 
 function startTimer() {
   interval = setInterval(function () {
-    timerElement.textContent = "Time: " + time
+    timerElement.textContent = "Timer: " + time
 
     time--
     if (time <= 0) {
@@ -104,7 +104,8 @@ choicesElement.addEventListener("click", function (event) {
 function endGame(){
   console.log('end the game')
   scoreElement.style.display = 'block'
-  scoreElement.textContent = score
+  prompt(scoreElement.textContent = "Your score is " + score + " out of 5")
+  
   // either render a new page for end game or display a new seciton on the page that has an end game 
 
   // end game refers to showing the score, an input boxx to insert an initial and a button to save to localStorage
