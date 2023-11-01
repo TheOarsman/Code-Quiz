@@ -85,27 +85,28 @@ function displayQuestions() {
 choicesElement.addEventListener("click", function (event) {
   event.preventDefault()
   var userChoice = event.target.textContent
-  var answer =  javascriptQuestions[questionIndex].answer
+  var answer = javascriptQuestions[questionIndex].answer
   if (userChoice === answer) {
-      score = score + 1 
+    score = score + 1
   } else {
     time = time - 10
   }
-    // end game if at last question
-    if(questionIndex === 4){
-      endGame()
-      return 
-    }
+  // end game if at last question
+  if (questionIndex === 4) {
+    endGame()
+    return
+  }
   questionIndex = questionIndex + 1
   displayQuestions()
 
 })
 
-function endGame(){
+function endGame() {
   console.log('end the game')
   scoreElement.style.display = 'block'
-  prompt(scoreElement.textContent = "Your score is " + score + " out of 5")
-  
+  prompt(scoreElement.textContent = "Your score is " + score + " out of 5. Enter your initials to log youR score.")
+  console.log("this is a test")
+
   // either render a new page for end game or display a new seciton on the page that has an end game 
 
   // end game refers to showing the score, an input boxx to insert an initial and a button to save to localStorage
