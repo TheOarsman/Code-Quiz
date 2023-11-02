@@ -48,11 +48,13 @@ function startTimer() {
   interval = setInterval(function () {
     timerElement.textContent = "Timer: " + time
 
-    time--
-    if (time <= 0) {
-      clearInterval()
+    
+    if (time == 0) {
+      clearInterval(interval);
+      endGame()
       // Call end game function here later - will need a function call to end game ex endGame()
     }
+    time--
   }, 1000)
 }
 
@@ -102,11 +104,22 @@ choicesElement.addEventListener("click", function (event) {
 })
 
 function endGame() {
+  clearInterval(interval)
   console.log('end the game')
   scoreElement.style.display = 'block'
-  prompt(scoreElement.textContent = "Your score is " + score + " out of 5. Enter your initials to log youR score.")
-
-  // end game refers to showing the score, an input boxx to insert an initial and a button to save to localStorage
+  var scoretext = "Your score is " + score + " out of 5."
+  scoreElement.textContent = scoretext
+  var userInput = prompt(scoretext + " Enter your initials to log your score.")
+  if(userInput) {
+    console.log(userInput);
+    console.log("User Initials End Game")
+    // save to localStorage
+    // hide quetsions element
+    // hide choices
+    // show start button & high scores link
+  } else {
+    endGame()
+  }
 }
 
 // Creating start quiz function that simultaniously starts the timer
@@ -116,4 +129,4 @@ startButton.addEventListener("click", function (event) {
   startTimer()
 })
 
-// need to create an event listener
+// unhide start button for end of game
