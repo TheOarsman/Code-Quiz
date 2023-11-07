@@ -52,7 +52,6 @@ function startTimer() {
     if (time == 0) {
       clearInterval(interval);
       endGame()
-      // Call end game function here later - will need a function call to end game ex endGame()
     }
     time--
   }, 1000)
@@ -100,7 +99,6 @@ choicesElement.addEventListener("click", function (event) {
   }
   questionIndex = questionIndex + 1
   displayQuestions()
-
 })
 
 function endGame() {
@@ -111,12 +109,10 @@ function endGame() {
   scoreElement.textContent = scoretext
   var userInput = prompt(scoretext + " Enter your initials to log your score.")
   if(userInput) {
-    console.log(userInput);
+    console.log(userInput)
     console.log("User Initials End Game")
-    // save to localStorage
-    // hide quetsions element
-    // hide choices
-    // show start button & high scores link
+    console.log(score)
+    startButton.remove("hide")
   } else {
     endGame()
   }
