@@ -112,7 +112,6 @@ function endGame() {
     console.log(userInput)
     console.log("User Initials End Game")
     console.log(score)
-    startButton.remove("hide")
   } else {
     endGame()
   }
@@ -125,4 +124,3 @@ startButton.addEventListener("click", function (event) {
   startTimer()
 })
 
-// unhide start button for end of game
